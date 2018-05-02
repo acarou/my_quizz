@@ -1,21 +1,35 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+    	{% block title %}
+    		{% if is_granted("ROLE_USER") %}
+    			{{ app.user.username }} 
+    		{% else %}
+    			INVITE
+    		{% endif %}
+    	{% endblock %}
+    </title>
 
-{% block title %}
-	{% if is_granted("ROLE_USER") %}
-
-		{{ app.user.username }}
-
-	{% else %}
-		INVITE
-	{% endif %}
-{% endblock %}
-
-
-
-{% block body %}
-
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+	<div class="header">
+	<a href="{{ path('homepage') }}">Accueil</a>
 	{% if is_granted('ROLE_USER') %}
 		<a href="{{ path('fos_user_profile_edit') }}">edit profil</a>
+		<a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+	{% else %}
+		<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 	{% endif %}
 	
 
@@ -28,8 +42,11 @@
 			{% endfor %}
 		{% endfor %}
 	{% endif %}
-
+	</div>
 
 	
-	{% block fos_user_content %}{% endblock %}
-{% endblock %}
+	<div class="main-content">
+{% block fos_user_content %}{% endblock %}</div>
+
+</body>
+</html>
