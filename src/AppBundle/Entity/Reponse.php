@@ -43,4 +43,86 @@ class Reponse
     private $id;
 
 
+
+    /**
+     * Set idQuestion.
+     *
+     * @param int|null $idQuestion
+     *
+     * @return Reponse
+     */
+    public function setIdQuestion($idQuestion = null)
+    {
+        $this->idQuestion = $idQuestion;
+
+        return $this;
+    }
+
+    /**
+     * Get idQuestion.
+     *
+     * @return int|null
+     */
+    public function getIdQuestion()
+    {
+        return $this->idQuestion;
+    }
+
+    /**
+     * Set reponse.
+     *
+     * @param string|null $reponse
+     *
+     * @return Reponse
+     */
+    public function setReponse($reponse = null)
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Get reponse.
+     *
+     * @return string|null
+     */
+    public function getReponse()
+    {
+        return $this->reponse;
+    }
+
+    /**
+     * Set reponseExpected.
+     *
+     * @param bool|null $reponseExpected
+     *
+     * @return Reponse
+     */
+    public function setReponseExpected($reponseExpected = null)
+    {
+        $this->reponseExpected = $reponseExpected;
+
+        return $this;
+    }
+
+    /**
+     * Get reponseExpected.
+     *
+     * @return bool|null
+     */
+    public function getReponseExpected()
+    {
+        return $this->reponseExpected;
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
