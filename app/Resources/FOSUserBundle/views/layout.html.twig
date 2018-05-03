@@ -21,32 +21,38 @@
 </head>
 <body>
 	<div class="header">
-	<a href="{{ path('homepage') }}">Accueil</a>
-	{% if is_granted('ROLE_USER') %}
-		<a href="{{ path('fos_user_profile_edit') }}">edit profil</a>
-		<a href="{{ path('fos_user_security_logout') }}">
-            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-        </a>
-	{% else %}
-		<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-        <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-	{% endif %}
-	
+		<a href="{{ path('homepage') }}">Accueil</a>
+		{% if is_granted('ROLE_USER') %}
+			<a href="{{ path('fos_user_profile_edit') }}">{{ 'layout.edit'|trans({}, 'FOSUserBundle') }}</a>
+			<a href="{{ path('fos_user_security_logout') }}">
+	            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+	        </a>
+		{% else %}
+			<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+	        <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+		{% endif %}
+		
 
-	{% if app.request.hasPreviousSession %}
-		{% for type, messages in app.session.flashbag.all() %}
-			{% for message in messages %}
-				<div class="flash-{{ type }}">
-					{{ message }}
-				</div>
+		{% if app.request.hasPreviousSession %}
+			{% for type, messages in app.session.flashbag.all() %}
+				{% for message in messages %}
+					<div class="flash-{{ type }}">
+						{{ message }}
+					</div>
+				{% endfor %}
 			{% endfor %}
-		{% endfor %}
-	{% endif %}
+		{% endif %}
 	</div>
 
 	
-	<div class="main-content">
-{% block fos_user_content %}{% endblock %}</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				{% block fos_user_content %}{% endblock %}
+			</div>
+		</div>
+
+	</div>
 
 </body>
 </html>
