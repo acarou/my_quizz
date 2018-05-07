@@ -90,9 +90,9 @@ easy_admin:
             css: ['css/custom_backend.css']
     list:
         actions:
-            - { name: 'show', icon: 'search', label: '' }
-            - { name: 'edit', icon: 'pencil', label: '' }
-            - { name: 'delete', icon: 'trash', label: '' }
+            - { name: 'show', icon: 'search', label: '', title: 'voir' }
+            - { name: 'edit', icon: 'pencil', label: '' , title: 'editer'}
+            - { name: 'delete', icon: 'trash', label: '', title: 'suprimer' }
         title: 'Liste de %%entity_label%%'
 
     entities:
@@ -118,7 +118,7 @@ easy_admin:
                     - 'reponse'
                     - { property: 'reponse_expected', type: 'toggle' }
         FosUser:
-            class: AppBundle\Entity\FosUser
+            class: AppBundle\Entity\User
             label: Utilisateurs
             edit:
             list: 
