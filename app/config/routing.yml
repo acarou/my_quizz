@@ -1,7 +1,6 @@
-quizz:
-    resource: "@QuizzBundle/Controller/"
-    type:     annotation
-    prefix:   /
+QuizzBundle:
+    resource: "@QuizzBundle/Resources/config/routing.yml"
+    prefix:   /quizz
 
 app:
     resource: '@AppBundle/Controller/'
@@ -12,3 +11,4 @@ easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type: annotation
     prefix: /admin
+

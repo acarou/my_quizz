@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    
+
+  </head>
+
+  <body>
+
+ 
+     
+        {{ listQuestions.question }}
+
+        {{ form_start(form) }}
+ <p> {{ form_widget(form) }} </p> 
+ 	{{ form_end(form) }}
+
+ 	{{result}}
+
+ 	 <a href="{{ path('QuizzBundle_view', {'id': categorie.id}) }}">
+ 	 Question suivante</a>
+
+
+      <br>
+
+   </body>
+
+</html>
+

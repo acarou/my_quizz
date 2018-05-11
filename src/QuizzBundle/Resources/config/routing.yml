@@ -1,0 +1,65 @@
+
+
+
+
+
+QuizzBundle_home:
+
+    path:      /{page}
+
+    defaults:
+        _controller: QuizzBundle:Quizz:index 
+
+        page:        1
+
+    requirements:
+        page: \d* 
+
+    
+
+QuizzBundle_view:
+
+    path:      /advert/{id}
+
+    defaults:
+        _controller: QuizzBundle:Quizz:view
+    requirements:
+        id: \d+
+
+    
+
+QuizzBundle_add:
+
+    path:      /form
+
+    defaults:
+        _controller: QuizzBundle:Reponse:form
+
+QuizzBundle_edit:
+
+    path:      /edit/{id}
+
+    defaults:
+        _controller: QuizzBundle:Quizz:edit
+    requirements:
+        id: \d+
+
+QuizzBundle_delete:
+    path:      /delete/{id}
+
+    defaults:
+        _controller: QuizzBundle:Quizz:delete
+    requirements:
+        id: \d+   
+
+QuizzBundle_view_slug:
+
+    path:      /{year}/{slug}.{_format}
+
+    defaults: {_controller: QuizzBundle:Quizz:viewSlug, format: html }
+
+    requirements:
+
+        year:   \d{4}
+
+        format: html|xml

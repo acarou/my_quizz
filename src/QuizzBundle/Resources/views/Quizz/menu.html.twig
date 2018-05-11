@@ -1,0 +1,17 @@
+<ul class="nav nav-pills nav-stacked">
+
+  {% for categorie in listCategorie %}
+
+    <li>
+
+      <a href="{{ path('QuizzBundle_view', {'id': categorie.id} )}}">
+
+        {{ categorie.name }}
+
+      </a>
+
+    </li>
+
+  {% endfor %}
+
+</ul>
